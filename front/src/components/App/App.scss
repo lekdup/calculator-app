@@ -8,3 +8,65 @@ body {
     flex-direction: column;
     margin: 1.3rem;
 }
+
+.Theme {
+    display: flex;
+    justify-content: space-between;
+    color: hsl(0, 0%, 100%);
+    &-toggleBtn {
+        display: flex;
+        
+    }
+}
+
+.CalcForm {
+    &-value {
+        padding: 2rem 1rem;
+        background-color: hsl(224, 36%, 15%);
+        border: none;
+        outline: none;
+        border-radius: .6rem;
+        font-size: 3rem;
+        color: hsl(0, 0%, 100%);
+        font-family: 'League Spartan', sans-serif;
+        width: 100%;
+        text-align: end;
+        margin-top: 1.3rem;
+    }
+
+}
+
+.Keypad {
+    background-color: hsl(223, 31%, 20%);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: .6rem;
+    margin-top: 1.3rem;
+    & button {
+        font-family: 'League Spartan', sans-serif;
+        border: none;
+        background-color: hsl(30, 25%, 89%);
+        border-bottom: 5px solid hsl(28, 16%, 65%);
+        color: hsl(221, 14%, 31%);
+        font-size: 2rem;
+        border-radius: .3rem;
+        padding: 1rem .5rem;
+    }
+    &-reset, &-equal{
+        grid-column: span 2;
+    }
+}
+
+#del, #reset {
+    background-color: hsl(225, 21%, 49%);
+    color: hsl(30, 25%, 89%);
+    border-bottom: 5px solid hsl(224, 28%, 35%);
+}
+
+#equal {
+    background-color: hsl(6, 63%, 50%);
+    border-bottom: 5px solid hsl(6, 70%, 34%);
+    color: hsl(30, 25%, 89%);
+}
