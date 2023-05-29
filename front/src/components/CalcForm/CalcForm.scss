@@ -1,0 +1,16 @@
+.CalcForm {
+    &-value {
+        padding: 2rem 1rem;
+        background-color: hsl(224, 36%, 15%);
+        border: none;
+        outline: none;
+        border-radius: .6rem;
+        font-size: 3rem;
+        color: hsl(0, 0%, 100%);
+        font-family: 'League Spartan', sans-serif;
+        width: 100%;
+        text-align: end;
+        margin-top: 1.3rem;
+    }
+
+}
