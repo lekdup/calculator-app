@@ -15,15 +15,44 @@ body {
     color: hsl(0, 0%, 100%);
     &-toggleBtn {
         display: flex;
+        gap: 1rem;
+        align-items: center;
+        // i want to make these radio buttons into a toggle swtich for theme change
+        &-switch {
+          position: relative;
+          background-color: #182034;
+          border-radius: 100vmax;
+          padding: 4px;
+          display: flex;
+          justify-content: space-between;
+          width: 60px;
+          & input {
+            display: none;
+          }
+          & label {
+            cursor: pointer;
+            padding: 8px 8px;
+            border-radius: 50%;
+            transition: all 0.5s ease-in;
+          }
+          & input:checked + label {
+            background-color: #d03f2f;
+          }
+          & label::before{
+            content: attr(data-value);
+            position: absolute;
+            top: -18px;
+          }
+        }
         
     }
 }
 
 .CalcForm {
     height: 6rem;
-    background-color: hsl(224, 36%, 15%);
+    background-color: #182034;
     border-radius: .6rem;
-    color: hsl(0, 0%, 100%);
+    color: #ffffff;
     font-family: 'League Spartan', sans-serif;
     text-align: end;
     margin-top: 1.3rem;
@@ -35,7 +64,7 @@ body {
 }
 
 .Keypad {
-    background-color: hsl(223, 31%, 20%);
+    background-color: #232c43;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
@@ -45,9 +74,9 @@ body {
     & button {
         font-family: 'League Spartan', sans-serif;
         border: none;
-        background-color: hsl(30, 25%, 89%);
+        background-color: #eae3dc;
         border-bottom: 5px solid hsl(28, 16%, 65%);
-        color: hsl(221, 14%, 31%);
+        color: #444b5a;
         font-size: 2rem;
         border-radius: .3rem;
         padding: 1rem .5rem;
@@ -59,14 +88,14 @@ body {
 }
 
 #del, #reset {
-    background-color: hsl(225, 21%, 49%);
-    color: hsl(30, 25%, 89%);
-    border-bottom: 5px solid hsl(224, 28%, 35%);
+    background-color: #637097;
+    color: #eae3dc;
+    border-bottom: 5px solid #404e72;
     font-size: 1.4rem;
 }
 
 #equal {
-    background-color: hsl(6, 63%, 50%);
-    border-bottom: 5px solid hsl(6, 70%, 34%);
-    color: hsl(30, 25%, 89%);
+    background-color: #d03f2f;
+    border-bottom: 5px solid #93261a;
+    color: #eae3dc;
 }

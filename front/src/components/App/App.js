@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import { useReducer, useState } from 'react';
 import DigitButton from './DigitButton';
 import OperationButton from './OperationButton';
 import './App.scss';
@@ -94,17 +94,23 @@ function evaluate({ currentOperand, previousOperand, operation }) {
 
 function App() {
   const [{ currentOperand }, dispatch] = useReducer(reducer, {})
+  const [toggled, setToggled] = useState(false);
   return (
     <div className="App">
       <header className="Theme">
         <h1>calc</h1>
         <div className="Theme-toggleBtn">
           <p>THEME</p>
-          <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-          </ul>
+          <form className="Theme-toggleBtn-switch">
+            <input type="radio" name="switch" id="switch1" value="1" defaultChecked/>
+            <label htmlFor="switch1"  data-value="1"></label>
+
+            <input type="radio" name="switch" id="switch2" value="2" />
+            <label htmlFor="switch2" data-value="2"></label>
+
+            <input type="radio" name="switch" id="switch3" value="3" />
+            <label htmlFor="switch3" data-value="3"></label>
+          </form>
         </div>
       </header>
       <div className="CalcForm">
