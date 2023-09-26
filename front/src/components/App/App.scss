@@ -1,12 +1,16 @@
 body {
-    background-color: #3B4564;
-    font-family: 'League Spartan', sans-serif;
+  font-family: 'League Spartan', sans-serif;
 }
 .App {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    margin: 1.3rem;
+  max-width: 100vw;
+  min-height: 100vh;
+}
+main {
+  background-color: #3B4564;
+  padding: 1.3rem;
+  max-width: 425px;
+  margin: auto;
+
 }
 
 .Theme {
@@ -33,7 +37,7 @@ body {
             cursor: pointer;
             padding: 8px 8px;
             border-radius: 50%;
-            transition: all 0.5s ease-in;
+            transition: all 0.2s ease-in;
           }
           & input:checked + label {
             background-color: #d03f2f;

@@ -92,23 +92,54 @@ function evaluate({ currentOperand, previousOperand, operation }) {
   return calculate.toString();
 }
 
+function handleThemeChange(e) {
+  const theme = e.target.value;
+  console.log(theme);
+  if (theme === "2") {
+    document.documentElement.setAttribute("data-theme", "theme2");
+  } else if (theme === "3") {
+    document.documentElement.setAttribute("data-theme", "theme3");
+  } else {
+    document.documentElement.setAttribute("data-theme", "theme1");
+  }
+}
 function App() {
   const [{ currentOperand }, dispatch] = useReducer(reducer, {})
-  const [toggled, setToggled] = useState(false);
+  // const [toggled, setToggled] = useState(false);
   return (
     <div className="App">
+      <main>
       <header className="Theme">
         <h1>calc</h1>
         <div className="Theme-toggleBtn">
           <p>THEME</p>
           <form className="Theme-toggleBtn-switch">
-            <input type="radio" name="switch" id="switch1" value="1" defaultChecked/>
+            <input
+              type="radio"
+              name="switch"
+              id="switch1"
+              value="1"
+              defaultChecked
+              onChange={handleThemeChange}
+            />
             <label htmlFor="switch1"  data-value="1"></label>
 
-            <input type="radio" name="switch" id="switch2" value="2" />
+            <input
+              type="radio"
+              name="switch"
+              id="switch2"
+              value="2"
+              onChange={handleThemeChange}
+            />
             <label htmlFor="switch2" data-value="2"></label>
 
-            <input type="radio" name="switch" id="switch3" value="3" />
+            <input
+              type="radio"
+              name="switch"
+              id="switch3"
+              value="3"
+              onChange={handleThemeChange}
+            />
             <label htmlFor="switch3" data-value="3"></label>
           </form>
         </div>
@@ -154,6 +185,7 @@ function App() {
         >=
         </button>
       </section>
+      </main>
     </div>
   );
 }
