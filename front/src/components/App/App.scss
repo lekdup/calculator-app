@@ -1,3 +1,8 @@
+:root {
+  --primary-bg: #3B4564;
+  --secondary-bg: 
+}
+
 body {
   font-family: 'League Spartan', sans-serif;
 }
@@ -6,7 +11,7 @@ body {
   min-height: 100vh;
 }
 main {
-  background-color: #3B4564;
+  background-color: var(--primary-bg);
   padding: 1.3rem;
   max-width: 425px;
   margin: auto;

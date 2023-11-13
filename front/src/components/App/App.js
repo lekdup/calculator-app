@@ -96,15 +96,9 @@ function evaluate({ currentOperand, previousOperand, operation }) {
 function App() {
   const [{ currentOperand }, dispatch] = useReducer(reducer, {})
   const [theme, setTheme] = useState(1);
+
   function handleThemeChange(e) {
     const newTheme = Number(e.target.value);
-    // if (theme === "2") {
-    //   document.documentElement.setAttribute("data-theme", "theme2");
-    // } else if (theme === "3") {
-    //   document.documentElement.setAttribute("data-theme", "theme3");
-    // } else {
-    //   document.documentElement.setAttribute("data-theme", "theme1");
-    // }
     setTheme(newTheme)
   }
   console.log(theme);
