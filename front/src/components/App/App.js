@@ -92,22 +92,24 @@ function evaluate({ currentOperand, previousOperand, operation }) {
   return calculate.toString();
 }
 
-function handleThemeChange(e) {
-  const theme = e.target.value;
-  console.log(theme);
-  if (theme === "2") {
-    document.documentElement.setAttribute("data-theme", "theme2");
-  } else if (theme === "3") {
-    document.documentElement.setAttribute("data-theme", "theme3");
-  } else {
-    document.documentElement.setAttribute("data-theme", "theme1");
-  }
-}
+
 function App() {
   const [{ currentOperand }, dispatch] = useReducer(reducer, {})
-  // const [toggled, setToggled] = useState(false);
+  const [theme, setTheme] = useState(1);
+  function handleThemeChange(e) {
+    const newTheme = Number(e.target.value);
+    // if (theme === "2") {
+    //   document.documentElement.setAttribute("data-theme", "theme2");
+    // } else if (theme === "3") {
+    //   document.documentElement.setAttribute("data-theme", "theme3");
+    // } else {
+    //   document.documentElement.setAttribute("data-theme", "theme1");
+    // }
+    setTheme(newTheme)
+  }
+  console.log(theme);
   return (
-    <div className="App">
+    <div className={`App theme-${theme}`}>
       <main>
       <header className="Theme">
         <h1>calc</h1>
