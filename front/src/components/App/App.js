@@ -13,6 +13,12 @@ export const ACTIONS = {
 function reducer(state, { type, payload }) {
   switch(type) {
     case ACTIONS.ADD_DIGIT:
+      if(!state.currentOperand) {
+        return {
+          ...state,
+          currentOperand: payload.digit === "." ? "0." : payload.digit
+        };
+      }
       if(payload.digit === "0" && state.currentOperand === "0") return state
       if(payload.digit === "." && state.currentOperand.includes(".")) return state
 
@@ -66,6 +72,7 @@ function reducer(state, { type, payload }) {
   }
   
 } 
+// reducer ends here *****************************
 
 function evaluate({ currentOperand, previousOperand, operation }) {
   const prev = parseFloat(previousOperand);
@@ -94,7 +101,7 @@ function evaluate({ currentOperand, previousOperand, operation }) {
 
 
 function App() {
-  const [{ currentOperand }, dispatch] = useReducer(reducer, {})
+  const [{ currentOperand, operation, previousOperand }, dispatch] = useReducer(reducer, {})
   const [theme, setTheme] = useState(1);
 
   function handleThemeChange(e) {
@@ -141,7 +148,10 @@ function App() {
         </div>
       </header>
       <div className="CalcForm">
-        <div className="CalcForm-value">{currentOperand}</div>
+        <div className="CalcForm-value">
+          {previousOperand ? `${previousOperand}${operation}` : ''}
+          {currentOperand}
+        </div>
       </div>
       <section className="Keypad">
         <DigitButton digit="7" dispatch={dispatch}/>
