@@ -52,7 +52,7 @@ function reducer(state, { type, payload }) {
     case ACTIONS.DELETE_DIGIT:
       return {
         ...state,
-        currentOperand: state.currentOperand.slice(0, -1)
+        currentOperand: state.currentOperand ? state.currentOperand.slice(0, -1) : ""
       };
 
     case ACTIONS.EVALUATE:
@@ -64,7 +64,7 @@ function reducer(state, { type, payload }) {
       }
     default:
   }
-  console.log(state.previousOperand);
+  
 } 
 
 function evaluate({ currentOperand, previousOperand, operation }) {
@@ -101,7 +101,7 @@ function App() {
     const newTheme = Number(e.target.value);
     setTheme(newTheme)
   }
-  console.log(theme);
+  
   return (
     <div className={`App theme-${theme}`}>
       <main>
